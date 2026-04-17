@@ -1,6 +1,6 @@
 # MapMig — A Map Porting Quickfix Tool
 
-For anyone who does map porting from one game to another, the story is often the same: replacing hundreds of texture names, hunting down entity classnames that don't exist in the target game, and hand-packing textures into WAD files... repetitive and tedious. MapMig seeks to speed up this process within a sleek, straightforward visual interface.
+For anyone who does map porting from one game to another, the story is often the same: replacing countless texture names, hunting down entity classnames that don't exist in the target game, and hand-packing textures into supported texture package files... repetitive and tedious. MapMig seeks to speed up this process within a sleek, straightforward visual interface.
 
 MapMig is a desktop utility for porting maps from other games to Quake 1 format, with intent to expand support to other titles soon.  
 Drop in a `.map` file to swap textures, modify entities, manage WAD files, and save a clean output.  
