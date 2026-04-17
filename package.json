@@ -1,0 +1,17 @@
+{
+  "name": "mapmig",
+  "version": "1.0.0",
+  "description": "MapMig - A map porting utility tool for Quake",
+  "private": true,
+  "scripts": {
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2"
+  }
+}
