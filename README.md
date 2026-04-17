@@ -143,13 +143,5 @@ Contents:
 
 ## Known Bugs
 
-Listed below are all bugs that are currently identifiable
-
-- **Windows:** `%APPDATA%/mapmig/`
-- **macOS:** `~/Library/Application Support/mapmig/`
-- **Linux:** `~/.config/mapmig/`
-
-Contents:
-- `settings.json` — all MapMig settings
-- `recents.json` — recently opened files (with full paths)
-- `persistent_wads/` — WAD files that auto-load with every map
+Listed below are all bugs that are currently identifiable:
+- Right-clicking an image and choosing Magnify currently does not work as intended; this will be patched at a later point.
