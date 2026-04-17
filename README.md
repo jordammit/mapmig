@@ -66,7 +66,7 @@ Maintained by Jordan Siegler @ iKM Media for the QuakeWorld Team Fortress Unific
 
 ---
 
-## Prerequisites
+## Compiling - Prerequisites
 
 ### 1. Install Rust
 ```bash
@@ -93,7 +93,7 @@ macOS and Windows require no additional system dependencies.
 
 ---
 
-## Setup
+## Compiling - Setup
 
 ```bash
 cd mapmig
@@ -102,7 +102,7 @@ npm install
 
 ---
 
-## Development
+## Compiling - Dev Mode
 
 Run the app in development mode with hot-reload:
 ```bash
@@ -113,7 +113,7 @@ This opens the app window. Changes to files in `src/` will auto-reload.
 
 ---
 
-## Building for Distribution
+## Compiling - Build for Distribution
 
 Build a production release:
 ```bash
@@ -127,7 +127,7 @@ Output installers:
 
 ---
 
-## Configuration
+## Config Location
 
 All user data is stored in the OS config directory:
 - **Windows:** `%APPDATA%/mapmig/`
