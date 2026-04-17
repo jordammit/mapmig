@@ -1,7 +1,11 @@
 # MapMig — A Map Porting Quickfix Tool
 
-MapMig is a desktop utility for porting maps from other games to Quake 1 format, with intent to expand to other titles/engines in the future. Drop in a `.map` file to swap textures, modify entities, manage WAD files, and save a clean output. Built with [Tauri](https://tauri.app) for a native desktop feel with no runtime dependencies.
+For anyone who does map porting from one game to another, the story is often the same: replacing hundreds of texture names, hunting down entity classnames that don't exist in the target game, and hand-packing textures into WAD files... repetitive and tedious. MapMig seeks to speed up this process within a sleek, straightforward visual interface.
 
+MapMig is a desktop utility for porting maps from other games to Quake 1 format, with intent to expand support to other titles soon.  
+Drop in a `.map` file to swap textures, modify entities, manage WAD files, and save a clean output.  
+Built with [Tauri](https://tauri.app) and [React](https://react.dev/) for a native desktop application feel while remaining lightweight with no runtime dependencies.  
+  
 Maintained by Jordan Siegler @ iKM Media for the QuakeWorld Team Fortress Unification Project.
 
 ---
@@ -12,14 +16,14 @@ Maintained by Jordan Siegler @ iKM Media for the QuakeWorld Team Fortress Unific
 - Browse every unique texture across all brush faces, with face count and entity usage per texture
 - Worldspawn, brush entity, and special textures (clip, skip, trigger, sky) listed in separate groups
 - Per-texture replacement with Quake's 15-character name limit enforced at input
-- WAD texture picker — searchable, alphabetical list with thumbnail previews
 - Detection for texture names exceeding Quake's 15-character limit or containing invalid characters
+- WAD texture picker — searchable, alphabetical list with thumbnail previews
 - Bulk texture replacement via the Quick Edit tab
 
 ### WAD file support
-- Load WAD2 (Quake) and WAD3 (Half-Life) files:
+- Load WAD2 (Quake) files 2 ways:
   - **Persistent WADs** — add WAD files in Settings to auto-load them with every map session
-  - **Single-use WADs** — loaded per-session by drag-and-drop or sidebar button, promotable to the persistent list at any time
+  - **Single-use WADs** — loaded per-session by drag-and-drop or sidebar button, promotable to the persistent list at any time before restarting the application
 - Texture thumbnails displayed throughout the interface when a WAD is loaded
 - Active WADs panel in sidebar with a refresh button to pick up changes made to WAD files externally
 
@@ -40,16 +44,16 @@ Maintained by Jordan Siegler @ iKM Media for the QuakeWorld Team Fortress Unific
 - **Delete Entity** button on each instance; **Delete All** removes every instance of a classname
 - Brush entities display per-face texture editing inline
 - **Multi-entity editing** — check individual entities or use Edit All to select an entire classname at once; differing values across the selection display as an italic *multi* placeholder
-- Quick Entity Property Edit in the Quick Edit tab for applying a key-value change across all instances of a classname at once
+- Quick Entity Property Edit in the Quick Edit tab for applying a key/value change across all instances of a classname at once
 
 ### Saving and file management
-- **Save** — overwrites the original file directly; optionally writes a timestamped backup to the same folder first (toggleable in Settings)
+- **Save** — overwrites the original file directly; writes a timestamped backup to the same folder first (toggleable in Settings)
 - **Save As** — allows user to save file under whatever name they'd like in a directory of their choosing
 - **Reload** — re-reads the current file from disk without re-selecting it, useful when editing externally between saves
 - **Recents panel** — persistent list of recently opened maps; clicking any entry reopens the file from disk
 
 ### Edit history and undo/redo
-- Full edit history panel in the sidebar, showing up to 30 operations
+- Full edit history panel in the sidebar, showing up to 30 previous operations
 - **Ctrl+Z** to undo, **Ctrl+Y** to redo
 - Click any entry in the history panel to jump directly to that point in history
 - Undone entries are visually dimmed; the current position is highlighted
