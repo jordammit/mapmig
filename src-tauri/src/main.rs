@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::{Path, PathBuf};
 use chrono::Local;
+use tauri::Manager;
 
 #[derive(Serialize, Deserialize, Clone)]
 struct RecentFile {
@@ -97,6 +98,17 @@ fn generate_backup_name(path: String) -> String {
     let ts = Local::now().format("%Y-%m-%dT%H-%M-%S").to_string();
     let backup_name = format!("{}_original_{}.{}", stem, ts, ext);
     Path::new(&dir).join(&backup_name).to_string_lossy().to_string()
+}
+
+// --- Window title ---
+
+#[tauri::command]
+fn set_window_title(app: tauri::AppHandle, title: String) -> Result<(), String> {
+    if let Some(window) = app.get_webview_window("main") {
+        window.set_title(&title).map_err(|e| format!("Failed to set title: {}", e))
+    } else {
+        Err("Window not found".to_string())
+    }
 }
 
 // --- Recents ---
@@ -198,6 +210,29 @@ fn remove_persistent_wad(name: String) -> Result<(), String> {
     fs::remove_file(&path).map_err(|e| format!("Failed to remove WAD: {}", e))
 }
 
+// --- Directory listing ---
+
+#[tauri::command]
+fn list_directory_recursive(path: String) -> Result<Vec<String>, String> {
+    let mut files = Vec::new();
+    fn walk(dir: &Path, files: &mut Vec<String>) -> std::io::Result<()> {
+        if dir.is_dir() {
+            for entry in fs::read_dir(dir)? {
+                let entry = entry?;
+                let path = entry.path();
+                if path.is_dir() {
+                    walk(&path, files)?;
+                } else {
+                    files.push(path.to_string_lossy().to_string());
+                }
+            }
+        }
+        Ok(())
+    }
+    walk(Path::new(&path), &mut files).map_err(|e| format!("Failed to list directory: {}", e))?;
+    Ok(files)
+}
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
@@ -212,6 +247,7 @@ fn main() {
             join_path,
             path_exists,
             generate_backup_name,
+            set_window_title,
             get_recents,
             add_recent,
             clear_recents,
@@ -221,6 +257,7 @@ fn main() {
             read_persistent_wad,
             save_persistent_wad,
             remove_persistent_wad,
+            list_directory_recursive,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
