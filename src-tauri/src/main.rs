@@ -259,6 +259,27 @@ fn main() {
             remove_persistent_wad,
             list_directory_recursive,
         ])
+        .setup(|app| {
+            #[cfg(target_os = "macos")]
+            {
+                use tauri::menu::{Menu, Submenu, PredefinedMenuItem};
+
+                let quit = PredefinedMenuItem::quit(app, None)?;
+
+                let submenu = Submenu::with_items(
+                    app,
+                    "MapMig",
+                    true,
+                    &[&quit],
+                )?;
+
+                let menu = Menu::with_items(app, &[&submenu])?;
+
+                app.set_menu(menu)?;
+            }
+
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
