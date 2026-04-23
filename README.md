@@ -128,7 +128,7 @@ npm run tauri:build
 
 Output application is saved to:
 - **Windows:** `src-tauri/target/release/mapmig.exe`
-- **macOS:** `src-tauri/target/release/mapmig.app`
+- **macOS:** `src-tauri/target/release/bundle/macos/mapmig.app`
 - **Linux:** `src-tauri/target/release/mapmig.AppImage`
 
 ---
