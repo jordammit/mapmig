@@ -2,11 +2,11 @@
 
 For anyone who does map porting from one game to another, the earliest obstacles are often the same: replacing countless texture names, manually converting the textures into a supported format, removing entities that don't exist in the target game, and modifying similar enough entities to make them work properly. MapMig seeks to speed up this process within a sleek, straightforward visual interface.
 
-MapMig is a desktop map porting cleanup utility, with current support geared specifically for porting maps to Quake 1, snd intent to expand support to other titles soon.  
+MapMig is a desktop map porting cleanup utility, with current support geared specifically for porting maps to Quake 1, and intent to expand support to other titles soon.  
   
 Simply drop in a `.map` file to swap textures, modify entities, manage WAD files, and save a clean output. Open the resulting output in your favorite map editor to confirm accuracy and make any other necessary additions before compilation.  
   
-Built with [Tauri](https://tauri.app), [React](https://react.dev/), and [Rust](https://rust-lang.org/) in order to pack application into a single executable that remains lightweight with no runtime dependencies.  
+Built with [Tauri](https://tauri.app), [React](https://react.dev/), and [Rust](https://rust-lang.org/) in order to pack the application into a single executable that remains lightweight with no runtime dependencies.  
   
 Created and maintained by Jordan Siegler @ iKM Media for the QuakeWorld Team Fortress Unification Project.
 
